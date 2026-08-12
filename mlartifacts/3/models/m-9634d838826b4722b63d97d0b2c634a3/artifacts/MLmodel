@@ -1,0 +1,31 @@
+artifact_path: mlflow-artifacts:/3/models/m-9634d838826b4722b63d97d0b2c634a3/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.13.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.6.1
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.12.0
+model_id: m-9634d838826b4722b63d97d0b2c634a3
+model_size_bytes: 97862
+model_uuid: m-9634d838826b4722b63d97d0b2c634a3
+prompts: null
+run_id: c175ba58c27d4511961c268dac286176
+signature:
+  inputs: '[{"type": "datetime", "name": "time", "required": true}, {"type": "double",
+    "name": "Speed", "required": true}, {"type": "string", "name": "Direction", "required":
+    true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-08-12 01:05:50.169532'

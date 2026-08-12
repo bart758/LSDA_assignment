@@ -1,0 +1,3 @@
+{
+  "mean_absolute_error_X_va": "mean_absolute_error(y_true=<ndarray>, y_pred=y_va)"
+}
