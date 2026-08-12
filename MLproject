@@ -1,0 +1,68 @@
+name: wind_power_forecast
+
+conda_env: conda.yaml
+
+entry_points:
+  train:
+    parameters:
+      power_data:   { type: str, default: "data/power.csv" }
+      weather_data: { type: str, default: "data/weather.csv" }
+    command: >
+      python train.py
+      --power_data {power_data}
+      --weather_data {weather_data}
+
+  rf_gridsearch:
+    parameters:
+      power_data:   { type: str, default: "data/power.csv" }
+      weather_data: { type: str, default: "data/weather.csv" }
+      n_splits:     { type: int, default: 5 }
+    command: >
+      python rf_gridsearch.py
+      --power_data {power_data}
+      --weather_data {weather_data}
+      --n_splits {n_splits}
+
+  mlp_gridsearch:
+    parameters:
+      power_data:   { type: str, default: "data/power.csv" }
+      weather_data: { type: str, default: "data/weather.csv" }
+      n_splits:     { type: int, default: 5 }
+    command: >
+      python mlp_gridsearch.py
+      --power_data {power_data}
+      --weather_data {weather_data}
+      --n_splits {n_splits}
+
+  baseline:
+    parameters:
+      power_data:   { type: str, default: "data/power.csv" }
+      weather_data: { type: str, default: "data/weather.csv" }
+    command: >
+      python baseline.py
+      --power_data {power_data}
+      --weather_data {weather_data}
+
+  seed_variance:
+    parameters:
+      power_data:   { type: str, default: "data/power.csv" }
+      weather_data: { type: str, default: "data/weather.csv" }
+      n_splits:     { type: int, default: 5 }
+      seeds:        { type: str, default: "0,1,42,123,2024" }
+    command: >
+      python seed_variance.py
+      --power_data {power_data}
+      --weather_data {weather_data}
+      --n_splits {n_splits}
+      --seeds {seeds}
+
+  cv_comparison:
+    parameters:
+      power_data:   { type: str, default: "data/power.csv" }
+      weather_data: { type: str, default: "data/weather.csv" }
+      n_splits:     { type: int, default: 5 }
+    command: >
+      python cv_comparison.py
+      --power_data {power_data}
+      --weather_data {weather_data}
+      --n_splits {n_splits}
